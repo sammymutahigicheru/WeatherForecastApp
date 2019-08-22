@@ -1,0 +1,33 @@
+package sammy.mutahi.forecast.ui.adapter.activities
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import org.jetbrains.anko.*
+import sammy.mutahi.forecast.R
+import sammy.mutahi.forecast.ui.adapter.adapter.ForecastListAdapter
+import sammy.mutahi.forecast.domain.commands.RequestForecastCommand
+import sammy.mutahi.forecast.domain.commands.domain.Forecast
+import sammy.mutahi.forecast.ui.adapter.adapter.OnItemClickListener
+import kotlinx.android.synthetic.main.activity_main.*
+
+class MainActivity : AppCompatActivity() {
+//    val url =
+//        "https://api.openweathermap.org/data/2.5/weather/daily?q=Nairobi,uk&APPID=4851ff9dc2036e8b92865366cc5ff1ce&q=94043&mode=json&units=metri\\c&cnt=7"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        forecastList.layoutManager = LinearLayoutManager(this)
+
+        doAsync {
+            val result = RequestForecastCommand(94043).execute()
+            uiThread {
+                val adapter = ForecastListAdapter(result) { toast(it.description) }
+                forecastList.adapter = adapter
+            }
+    }
+    }
+}
