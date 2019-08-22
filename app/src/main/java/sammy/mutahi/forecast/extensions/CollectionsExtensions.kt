@@ -2,7 +2,7 @@ package sammy.mutahi.forecast.extensions
 
 /*
 * This extension pairs key and values
-* 
+*
 *
 * */
 
