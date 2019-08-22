@@ -1,8 +1,7 @@
 package sammy.mutahi.forecast.ui.adapter
 
 import android.app.Application
-import androidx.appcompat.app.ActionBarDrawerToggle
-import sammy.mutahi.forecast.ui.adapter.delegates.DelegatesExt
+import sammy.mutahi.forecast.extensions.delegates.DelegatesExt
 
 class App: Application() {
     companion object{

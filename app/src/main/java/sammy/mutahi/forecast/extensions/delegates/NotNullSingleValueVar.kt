@@ -1,4 +1,4 @@
-package sammy.mutahi.forecast.ui.adapter.delegates
+package sammy.mutahi.forecast.extensions.delegates
 
 import kotlin.reflect.KProperty
 
