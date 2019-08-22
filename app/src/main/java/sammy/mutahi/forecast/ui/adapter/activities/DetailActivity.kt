@@ -3,9 +3,11 @@ package sammy.mutahi.forecast.ui.adapter.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toolbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.find
 import org.jetbrains.anko.uiThread
 import sammy.mutahi.forecast.R
 import sammy.mutahi.forecast.domain.commands.RequestDayForecastCommand
@@ -15,8 +17,10 @@ import sammy.mutahi.forecast.extensions.textColor
 import sammy.mutahi.forecast.extensions.toDateString
 import java.text.DateFormat
 
-class DetailActivity : AppCompatActivity() {
-
+class DetailActivity : AppCompatActivity(),ToolBarManager{
+    override val toolbar: Toolbar by lazy{
+        find<Toolbar>(R.id.toolbar)
+    }
     companion object{
         val ID="DetailActivity:id"
         val CITY_NAME = "DetailActivity:cityName"
@@ -26,7 +30,9 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        title = intent.getStringExtra(CITY_NAME)
+        initToolbar()
+        toolbarTitle = intent.getStringExtra(CITY_NAME)
+        enableHomeAsUp { onBackPressed() }
 
         doAsync {
             val result = RequestDayForecastCommand(intent.getLongExtra(ID,-1)).execute()
