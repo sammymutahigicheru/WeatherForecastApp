@@ -25,7 +25,12 @@ class MainActivity : AppCompatActivity() {
         doAsync {
             val result = RequestForecastCommand(94043).execute()
             uiThread {
-                val adapter = ForecastListAdapter(result) { toast(it.description) }
+
+                val adapter = ForecastListAdapter(result) {
+                    //refied function
+                    startActivity<DetailActivity>(DetailActivity.ID to it.id,
+                        DetailActivity.CITY_NAME to result.city)
+                }
                 forecastList.adapter = adapter
             }
     }
