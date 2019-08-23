@@ -21,14 +21,24 @@ class ForecastDb(
         val city = select(CityForecastTable.NAME)
             .whereSimple("${CityForecastTable.ID} =?", zipCode.toString())
             .parseOpt { CityForecast(HashMap(it), dailyForecast) }
-        if (city != null) dataMapper.convertToDomain(city) else null
+        //if (city != null) dataMapper.convertToDomain(city) else null
+        /*
+        * @param{city} can be null
+        * using let is more appropriate
+        *
+        * */
+        city?.let { dataMapper.convertToDomain(it) }
 
     }
     override fun requestDayForecast(id: Long) = forecastDBHelper.use {
         val forecast = select(DayForecastTable.NAME).byId(id).
             parseOpt { DayForecast(HashMap(it)) }
 
-        if (forecast != null) dataMapper.convertDayToDomain(forecast) else null
+       // if (forecast != null) dataMapper.convertDayToDomain(forecast) else null
+        /*
+        * more appropriate way is to use let since the result can be nullable or not
+        * */
+        forecast?.let { dataMapper.convertDayToDomain(it) }
     }
 
     fun saveForecast(forecast: ForecastList) = forecastDBHelper.use {
