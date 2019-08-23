@@ -7,6 +7,6 @@ object DelegatesExt {
     fun<T> notNullSingleValue()= NotNullSingleValue<T>()
 
     fun longPreference(context: Context, name: String, default: Long) =
-        LongPreference(context, name, default)
+        Preference(context, name, default)
 }
 
