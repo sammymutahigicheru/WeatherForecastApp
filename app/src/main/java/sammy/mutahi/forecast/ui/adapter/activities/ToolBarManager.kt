@@ -1,8 +1,10 @@
 package sammy.mutahi.forecast.ui.adapter.activities
 
-import android.widget.Toolbar
+
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import sammy.mutahi.forecast.R
 import sammy.mutahi.forecast.extensions.slideEnter
@@ -26,7 +28,7 @@ interface ToolBarManager {
         toolbar.inflateMenu(R.menu.menu_main)
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.action_settings -> App.instance.toast("Settings")
+                R.id.action_settings -> toolbar.ctx.startActivity<SettingsActivity>()
                 else -> App.instance.toast("Unknown option")
             }
             true
