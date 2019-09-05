@@ -1,4 +1,4 @@
-package sammy.mutahi.forecast
+package sammy.mutahi.weatherforecast
 
 import org.junit.Test
 

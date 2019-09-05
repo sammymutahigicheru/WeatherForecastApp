@@ -2,16 +2,13 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.adapter.activities.MainActivity">
+        tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/forecastList"
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/forecast_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
-    <include layout="@layout/toolbar" />
 
 </FrameLayout>
