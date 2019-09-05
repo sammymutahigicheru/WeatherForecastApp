@@ -1,9 +1,10 @@
-package sammy.mutahi.weatherforecast
+package sammy.mutahi.weatherforecast.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import sammy.mutahi.weatherforecast.R
 import sammy.mutahi.weatherforecast.adapters.ForecastListAdapter
 
 class MainActivity : AppCompatActivity() {
