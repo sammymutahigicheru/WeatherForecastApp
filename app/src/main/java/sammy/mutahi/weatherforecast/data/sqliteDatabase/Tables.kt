@@ -3,6 +3,7 @@ package sammy.mutahi.weatherforecast.data.sqliteDatabase
 object CityForecastTable{
     const val NAME = "CityForecast"
     const val CITY = "city"
+    val ID = "_id"
     const val COUNTRY = "country"
 
 }
@@ -14,4 +15,5 @@ object DayForecastTable {
     const val HIGH = "high"
     const val LOW = "low"
     const val ICON_URL = "iconUrl"
+    val CITY_ID = "cityId"
 }

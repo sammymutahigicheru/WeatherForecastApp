@@ -2,8 +2,8 @@ package sammy.mutahi.weatherforecast.domain.mapper
 
 
 
-import sammy.mutahi.weatherforecast.data.Forecast
-import sammy.mutahi.weatherforecast.data.ForecastResult
+import sammy.mutahi.weatherforecast.data.server.Forecast
+import sammy.mutahi.weatherforecast.data.server.ForecastResult
 import sammy.mutahi.weatherforecast.domain.model.ForecastList
 import sammy.mutahi.weatherforecast.domain.model.Forecast as ModelForecast
 import java.text.DateFormat

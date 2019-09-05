@@ -1,8 +1,6 @@
 package sammy.mutahi.weatherforecast.data.server
 
-import android.util.Log
 import com.google.gson.Gson
-import sammy.mutahi.weatherforecast.data.ForecastResult
 import java.net.URL
 
 class ForecastRequest(val cityName: String) {

@@ -1,4 +1,4 @@
-package sammy.mutahi.weatherforecast.data
+package sammy.mutahi.weatherforecast.data.server
 
 /*
 * A mock of data classes of open weather map api result

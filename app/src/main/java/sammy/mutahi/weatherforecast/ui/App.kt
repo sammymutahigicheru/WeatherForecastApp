@@ -12,9 +12,10 @@ import kotlin.properties.Delegates
 
 class App:Application() {
     companion object{
-        private lateinit var instance:App
-        //prevent instance from being modified inside the app
+        lateinit var instance:App
             private set
+        //prevent instance from being modified inside the app
+
     }
 
     override fun onCreate() {
