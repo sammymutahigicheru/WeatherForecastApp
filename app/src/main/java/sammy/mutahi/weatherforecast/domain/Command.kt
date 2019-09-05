@@ -2,6 +2,8 @@ package sammy.mutahi.weatherforecast.domain
 
 /*
 * Responsible for perfoming use cases of the app
+* it will execute an operation and return an object of class specified in:
+* @param T
 * */
 
 interface Command<out T> {
