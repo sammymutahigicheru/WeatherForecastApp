@@ -1,6 +1,8 @@
 package sammy.mutahi.weatherforecast.ui
 
 import android.app.Application
+import sammy.mutahi.weatherforecast.ui.utils.DelegatesExt
+import kotlin.properties.Delegates
 
 /*
 * This makes it easy to access application context
@@ -10,8 +12,9 @@ import android.app.Application
 
 class App:Application() {
     companion object{
-        private var instance:Application?=null
-        fun instance() = instance!!
+        private lateinit var instance:App
+        //prevent instance from being modified inside the app
+            private set
     }
 
     override fun onCreate() {
