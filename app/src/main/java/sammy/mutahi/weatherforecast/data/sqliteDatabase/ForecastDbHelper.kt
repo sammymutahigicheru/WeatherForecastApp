@@ -1,11 +1,13 @@
 package sammy.mutahi.weatherforecast.data.sqliteDatabase
 
+import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import org.jetbrains.anko.db.*
 import sammy.mutahi.weatherforecast.ui.App
 
-class ForecastDbHelper() : ManagedSQLiteOpenHelper(
-    App.instance,
+//injecting our context to ManagedSQLiteOpenhelper in smarter way
+class ForecastDbHelper(ctx:Context = App.instance) : ManagedSQLiteOpenHelper(
+    ctx,
     DB_NAME, null, DB_VERSION
 ) {
     companion object {
