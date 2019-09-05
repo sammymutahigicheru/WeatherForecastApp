@@ -9,6 +9,8 @@ import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 import sammy.mutahi.weatherforecast.R
 import sammy.mutahi.weatherforecast.data.server.ForecastRequest
+import sammy.mutahi.weatherforecast.domain.commands.RequestForecastCommand
+import sammy.mutahi.weatherforecast.ui.adapters.ForecastListAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,9 +26,9 @@ class MainActivity : AppCompatActivity() {
         forecast_list.layoutManager = LinearLayoutManager(this)
         doAsync {
             //perform request
-            ForecastRequest(url).run()
+            val result = RequestForecastCommand("mombasa").execute()
             uiThread {
-                toast("ForecastRequest Performed")
+                forecast_list.adapter = ForecastListAdapter(result)
             }
         }
     }
