@@ -1,5 +1,8 @@
 package sammy.mutahi.weatherforecast.data
 
+/*
+* A mock of data classes of open weather map api result
+* */
 
 data class ForecastResult(val city: City, val list: List<Forecast>)
 data class City(
