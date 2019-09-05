@@ -30,12 +30,9 @@ class MainActivity : AppCompatActivity() {
             //perform request
             val result = RequestForecastCommand("mombasa").execute()
             uiThread {
-                forecast_list.adapter = ForecastListAdapter(result,
-                    object : OnItemClickListener{
-                        override fun invoke(forecast: Forecast) {
-                            toast(forecast.date)
-                        }
-                    })
+                forecast_list.adapter = ForecastListAdapter(result){
+                    forecast ->  toast(forecast.date)
+                }
             }
         }
     }

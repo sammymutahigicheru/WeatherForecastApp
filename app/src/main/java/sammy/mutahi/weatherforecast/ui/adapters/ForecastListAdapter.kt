@@ -14,7 +14,7 @@ import sammy.mutahi.weatherforecast.domain.model.ForecastList
 import sammy.mutahi.weatherforecast.ui.utils.ctx
 
 class ForecastListAdapter(val weekForecast: ForecastList,
-                          val itemClick: OnItemClickListener) :
+                          val itemClick: (Forecast) -> Unit) :
     RecyclerView.Adapter<ForecastListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val view = LayoutInflater.from(p0.ctx)
@@ -28,7 +28,7 @@ class ForecastListAdapter(val weekForecast: ForecastList,
         p0.bindForecast(weekForecast[p1])
     }
 
-    class ViewHolder(view: View, val itemClick: OnItemClickListener) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View, val itemClick: (Forecast) ->Unit) : RecyclerView.ViewHolder(view) {
         private val iconView = view.find<ImageView>(R.id.icon)
         private val dateView = view.find<TextView>(R.id.date)
         private val descriptionView =
