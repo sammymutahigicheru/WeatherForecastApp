@@ -34,5 +34,7 @@ dependencies {
     implementation "org.jetbrains.anko:anko-common:$anko_version"
     //recycler-view
     implementation "com.android.support:recyclerview-v7:$support_version"
+    //GSon parser
+    implementation 'com.google.code.gson:gson:2.8.5'
 
 }

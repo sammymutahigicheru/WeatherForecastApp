@@ -8,8 +8,7 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 import sammy.mutahi.weatherforecast.R
-import sammy.mutahi.weatherforecast.adapters.ForecastListAdapter
-import sammy.mutahi.weatherforecast.data.Request
+import sammy.mutahi.weatherforecast.data.server.ForecastRequest
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,9 +24,9 @@ class MainActivity : AppCompatActivity() {
         forecast_list.layoutManager = LinearLayoutManager(this)
         doAsync {
             //perform request
-            Request(url).run()
+            ForecastRequest(url).run()
             uiThread {
-                toast("Request Performed")
+                toast("ForecastRequest Performed")
             }
         }
     }
