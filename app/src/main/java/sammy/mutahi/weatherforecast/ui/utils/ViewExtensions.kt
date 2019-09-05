@@ -1,4 +1,4 @@
-package sammy.mutahi.weatherforecast.extensions
+package sammy.mutahi.weatherforecast.ui.utils
 import android.content.Context
 import android.view.View;
 

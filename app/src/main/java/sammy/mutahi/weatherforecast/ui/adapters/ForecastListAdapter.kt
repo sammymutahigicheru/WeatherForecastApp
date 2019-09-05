@@ -11,7 +11,7 @@ import org.jetbrains.anko.find
 import sammy.mutahi.weatherforecast.R
 import sammy.mutahi.weatherforecast.domain.model.Forecast
 import sammy.mutahi.weatherforecast.domain.model.ForecastList
-import sammy.mutahi.weatherforecast.extensions.ctx
+import sammy.mutahi.weatherforecast.ui.utils.ctx
 
 class ForecastListAdapter(val weekForecast: ForecastList,
                           val itemClick: OnItemClickListener) :

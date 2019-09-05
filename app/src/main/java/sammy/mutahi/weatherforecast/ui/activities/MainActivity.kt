@@ -1,4 +1,4 @@
-package sammy.mutahi.weatherforecast.ui
+package sammy.mutahi.weatherforecast.ui.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +10,9 @@ import org.jetbrains.anko.uiThread
 import sammy.mutahi.weatherforecast.R
 import sammy.mutahi.weatherforecast.data.server.ForecastRequest
 import sammy.mutahi.weatherforecast.domain.commands.RequestForecastCommand
+import sammy.mutahi.weatherforecast.domain.model.Forecast
 import sammy.mutahi.weatherforecast.ui.adapters.ForecastListAdapter
+import sammy.mutahi.weatherforecast.ui.adapters.OnItemClickListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +30,12 @@ class MainActivity : AppCompatActivity() {
             //perform request
             val result = RequestForecastCommand("mombasa").execute()
             uiThread {
-                forecast_list.adapter = ForecastListAdapter(result)
+                forecast_list.adapter = ForecastListAdapter(result,
+                    object : OnItemClickListener{
+                        override fun invoke(forecast: Forecast) {
+                            toast(forecast.date)
+                        }
+                    })
             }
         }
     }
