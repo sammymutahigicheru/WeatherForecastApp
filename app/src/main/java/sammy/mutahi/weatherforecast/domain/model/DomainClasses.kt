@@ -1,5 +1,6 @@
 package sammy.mutahi.weatherforecast.domain.model
 
+
 /*
 * The first command will request data to API and convert it to these domain classes
 * */

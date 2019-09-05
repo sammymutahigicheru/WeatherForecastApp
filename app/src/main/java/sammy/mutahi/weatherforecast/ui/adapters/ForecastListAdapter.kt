@@ -1,4 +1,4 @@
-package sammy.mutahi.weatherforecast.adapters
+package sammy.mutahi.weatherforecast.ui.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup

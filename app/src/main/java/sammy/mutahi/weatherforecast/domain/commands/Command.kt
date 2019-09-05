@@ -1,4 +1,4 @@
-package sammy.mutahi.weatherforecast.domain
+package sammy.mutahi.weatherforecast.domain.commands
 
 /*
 * Responsible for perfoming use cases of the app
