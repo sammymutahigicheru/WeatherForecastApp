@@ -27,7 +27,7 @@ class Settings : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
         initToolbar()
-        toolbar.title = "Settings"
+        toolbarTitle = "Settings"
         city_name.setText(cityName)
     }
 
