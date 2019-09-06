@@ -20,7 +20,7 @@
                 android:textSize="@dimen/spacing_xlarge"
                 android:text="@string/city_name"/>
         <EditText
-                android:id="@+id/cityCode"
+                android:id="@+id/city_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/city_name"

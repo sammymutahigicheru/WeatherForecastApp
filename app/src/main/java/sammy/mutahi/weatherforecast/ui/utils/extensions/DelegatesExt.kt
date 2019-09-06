@@ -30,7 +30,7 @@ class StringPreference(val ctx: Context, val name: String, val default: String) 
         ctx.getSharedPreferences("default", Context.MODE_PRIVATE)
     }
 
-    operator fun getValue(thisRef: Any?, property: KProperty<*>): String? = prefs.getString(name, default)
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): String = prefs.getString(name, default)
     operator fun setValue(thisRef: Any?, property: KProperty<*>,value:String){
         prefs.edit().putString(name,value).apply()
     }
