@@ -3,20 +3,15 @@ package sammy.mutahi.weatherforecast.ui.adapters
 import android.annotation.SuppressLint
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import android.widget.TextView
 import android.view.View;
 import android.view.LayoutInflater;
-import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_forecast.view.*
-import org.jetbrains.anko.find
 import sammy.mutahi.weatherforecast.R
 import sammy.mutahi.weatherforecast.domain.model.Forecast
 import sammy.mutahi.weatherforecast.domain.model.ForecastList
-import sammy.mutahi.weatherforecast.ui.utils.ctx
-import java.text.DateFormat
-import java.util.*
+import sammy.mutahi.weatherforecast.ui.utils.extensions.ctx
 
 class ForecastListAdapter(private val weekForecast: ForecastList,
                           private val itemClick: (Forecast) -> Unit) :
