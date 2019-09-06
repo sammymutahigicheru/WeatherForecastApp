@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(),
         loadForecast()
     }
     fun loadForecast() = doAsync {
-        val result = RequestForecastCommand("mombasa").execute()
+        val result = RequestForecastCommand(cityName).execute()
         uiThread {
             val adapter = ForecastListAdapter(result) { toast(it.date) }
             forecast_list.adapter = adapter

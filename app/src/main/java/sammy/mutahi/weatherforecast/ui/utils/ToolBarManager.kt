@@ -4,9 +4,11 @@ import android.graphics.drawable.Drawable
 import android.support.v7.graphics.drawable.DrawerArrowDrawable
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import sammy.mutahi.weatherforecast.R
 import sammy.mutahi.weatherforecast.ui.App
+import sammy.mutahi.weatherforecast.ui.activities.Settings
 import sammy.mutahi.weatherforecast.ui.utils.extensions.ctx
 import sammy.mutahi.weatherforecast.ui.utils.extensions.slideEnter
 import sammy.mutahi.weatherforecast.ui.utils.extensions.slideExit
@@ -22,7 +24,7 @@ interface ToolBarManager {
         toolbar.inflateMenu(R.menu.menu_main)
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.action_settings -> App.instance.toast("Settings")
+                R.id.action_settings -> toolbar.ctx.startActivity<Settings>()
                 else -> App.instance.toast("Unknown option")
             }
             true
