@@ -6,8 +6,9 @@ package sammy.mutahi.weatherforecast.data.db
 * making properties to be the same with column names makes mapping to db easy
 * */
 
-class CityForecast(val map:MutableMap<String,Any>,
-                   val dailyForecast:List<DayForecast>){
+class CityForecast(
+    val map: HashMap<String, Any?>,
+    val dailyForecast:List<DayForecast>){
     var _id: Long by map
     var city: String by map
     var country: String by map
@@ -21,7 +22,7 @@ class CityForecast(val map:MutableMap<String,Any>,
 
 }
 
-class DayForecast(var map:MutableMap<String,Any>){
+class DayForecast(var map: HashMap<String, Any?>){
     var _id:Long by map
     var date: Long by map
     var description: String by map
