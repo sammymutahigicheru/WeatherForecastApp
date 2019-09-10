@@ -15,7 +15,8 @@ class ForecastDbHelper(ctx:Context = App.instance):ManagedSQLiteOpenHelper(
     ){
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.createTable(CityForecastTable.NAME, true,
-            CityForecastTable.CITY to TEXT + PRIMARY_KEY,
+            CityForecastTable.ID to INTEGER + PRIMARY_KEY,
+            CityForecastTable.CITY to TEXT,
             CityForecastTable.COUNTRY to TEXT)
         db.createTable(DayForecastTable.NAME, true,
             DayForecastTable.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
