@@ -1,6 +1,7 @@
 package sammy.mutahi.weatherforecast.data.db
 
 import org.jetbrains.anko.db.select
+import sammy.mutahi.weatherforecast.domain.model.ForecastList
 import sammy.mutahi.weatherforecast.ui.utils.extensions.parseList
 import sammy.mutahi.weatherforecast.ui.utils.extensions.parseOpt
 
@@ -19,5 +20,9 @@ class ForecastDb (val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.inst
         val city = select(CityForecastTable.NAME)
             .whereSimple("${CityForecastTable.CITY} = ?", cityName)
             .parseOpt { CityForecast(HashMap(it), dailyForecast) }
+        if (city != null) dataMapper.convertToDomain(city) else null
+    }
+    fun saveForecast(forecast: ForecastList) = forecastDbHelper.use {
+
     }
 }
