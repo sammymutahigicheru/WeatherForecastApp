@@ -1,7 +1,6 @@
-package sammy.mutahi.weatherforecast.data
+package sammy.mutahi.weatherforecast.data.server
 
 import com.google.gson.Gson
-import sammy.mutahi.weatherforecast.data.server.ForecastResult
 import java.net.URL
 
 class ForecastRequest(private val cityName: String) {
