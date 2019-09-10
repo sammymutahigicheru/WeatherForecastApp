@@ -9,6 +9,15 @@ import sammy.mutahi.weatherforecast.domain.model.ForecastList
 
 class DbDataMapper {
 
+    fun convertFromDomain(forecast: ForecastList) = with(forecast) {
+        val daily = dailyForecast.map { convertDayFromDomain(city, it) }
+        CityForecast(city, country, daily)
+    }
+    private fun convertDayFromDomain(citName: String, forecast: Forecast) =
+        with(forecast) {
+            DayForecast(date, description, high, low, iconUrl, cityName)
+        }
+
     fun convertToDomain(forecast: CityForecast) = with(forecast) {
         val daily = dailyForecast.map { convertDayToDomain(city,it) }
         ForecastList(city, country, daily)
