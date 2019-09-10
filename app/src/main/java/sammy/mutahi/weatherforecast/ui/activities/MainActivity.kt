@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(),
     fun loadForecast() = doAsync {
         val result = RequestForecastCommand(cityName).execute()
         uiThread {
-            val adapter = ForecastListAdapter(result) { toast(it.date) }
+            val adapter = ForecastListAdapter(result) { toast(it.description) }
             forecast_list.adapter = adapter
             toolbarTitle = "${result.city} (${result.country})"
         }

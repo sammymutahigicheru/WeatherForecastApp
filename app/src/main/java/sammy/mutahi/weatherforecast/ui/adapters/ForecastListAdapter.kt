@@ -12,6 +12,8 @@ import sammy.mutahi.weatherforecast.R
 import sammy.mutahi.weatherforecast.domain.model.Forecast
 import sammy.mutahi.weatherforecast.domain.model.ForecastList
 import sammy.mutahi.weatherforecast.ui.utils.extensions.ctx
+import java.text.DateFormat
+import java.util.*
 
 class ForecastListAdapter(private val weekForecast: ForecastList,
                           private val itemClick: (Forecast) -> Unit) :
@@ -35,12 +37,16 @@ class ForecastListAdapter(private val weekForecast: ForecastList,
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
                 Picasso.get().load(iconUrl).into(itemView.icon)
-                itemView.date.text = date
+                itemView.date.text = convertDate(date)
                 itemView.description.text = description
                 itemView.maxTemperature.text = "${high}º"
                 itemView.minTemperature.text = "${low}º"
                 itemView.setOnClickListener { itemClick(this) }
             }
+        }
+        private fun convertDate(date: Long): String {
+            val df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())
+            return df.format(date)
         }
     }
 }
