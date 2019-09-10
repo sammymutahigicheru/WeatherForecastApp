@@ -3,7 +3,7 @@ package sammy.mutahi.weatherforecast.data.server
 import com.google.gson.Gson
 import java.net.URL
 
-class ForecastRequest(private val cityName: String) {
+class ForecastByCityNameRequest(private val cityName: String) {
 
     companion object {
         private const val APP_ID = "15646a06818f61f7b8d7823ca833e1ce"

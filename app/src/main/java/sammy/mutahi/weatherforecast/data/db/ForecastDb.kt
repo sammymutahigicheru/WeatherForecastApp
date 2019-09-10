@@ -2,6 +2,7 @@ package sammy.mutahi.weatherforecast.data.db
 
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
+import sammy.mutahi.weatherforecast.domain.datasource.ForecastDataSource
 import sammy.mutahi.weatherforecast.domain.model.ForecastList
 import sammy.mutahi.weatherforecast.ui.utils.extensions.clear
 import sammy.mutahi.weatherforecast.ui.utils.extensions.parseList
@@ -13,8 +14,8 @@ import sammy.mutahi.weatherforecast.ui.utils.extensions.toVarargArray
 * */
 class ForecastDb (val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.instance,
                   val dataMapper:DbDataMapper = DbDataMapper()
-){
-    fun requestForecastByCityName(cityName:String,date:Long) = forecastDbHelper.use {
+): ForecastDataSource {
+    override fun requestForecastByCityName(cityName:String,date:Long) = forecastDbHelper.use {
         val dailyRequest = "${DayForecastTable.CITY_Name} = ? " +
                 "AND ${DayForecastTable.DATE} >= ?"
         val dailyForecast = select(DayForecastTable.NAME)

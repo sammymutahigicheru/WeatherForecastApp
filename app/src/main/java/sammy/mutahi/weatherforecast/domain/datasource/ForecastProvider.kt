@@ -1,10 +1,11 @@
 package sammy.mutahi.weatherforecast.domain.datasource
 
 import sammy.mutahi.weatherforecast.data.db.ForecastDb
+import sammy.mutahi.weatherforecast.data.server.ForecastServer
 import sammy.mutahi.weatherforecast.domain.model.ForecastList
 import sammy.mutahi.weatherforecast.ui.utils.extensions.firstResult
 
-class ForecastProvider(val sources:List<ForecastDataSource>,SOURCES) {
+class ForecastProvider(val sources:List<ForecastDataSource> = SOURCES as List<ForecastDataSource>) {
     companion object {
         val DAY_IN_MILLIS = 1000 * 60 * 60 * 24
         val SOURCES = listOf(ForecastDb(), ForecastServer())
