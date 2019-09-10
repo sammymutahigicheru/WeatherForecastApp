@@ -2,6 +2,7 @@ package sammy.mutahi.weatherforecast.domain.datasource
 
 import sammy.mutahi.weatherforecast.data.db.ForecastDb
 import sammy.mutahi.weatherforecast.domain.model.ForecastList
+import sammy.mutahi.weatherforecast.ui.utils.extensions.firstResult
 
 class ForecastProvider(val sources:List<ForecastDataSource>,SOURCES) {
     companion object {
@@ -9,5 +10,13 @@ class ForecastProvider(val sources:List<ForecastDataSource>,SOURCES) {
         val SOURCES = listOf(ForecastDb(), ForecastServer())
     }
     fun requestByCityName(cityName: String, days: Int): ForecastList
-            = sources.firstResult { requestSource(it, days, zipCode) }
+            = sources.firstResult { requestSource(it, days, cityName) }
+
+    private fun requestSource(source: ForecastDataSource, days: Int, cityName: String): ForecastList? {
+        val res = source.requestForecastByCityName(cityName, todayTimeSpan())
+        return if (res != null && res.size >= days) res else null
+    }
+
+    private fun todayTimeSpan() = System.currentTimeMillis() /
+            DAY_IN_MILLIS * DAY_IN_MILLIS
 }
