@@ -1,11 +1,17 @@
 package sammy.mutahi.weatherforecast.data.db
 
+import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import org.jetbrains.anko.db.*
 import sammy.mutahi.weatherforecast.ui.App
 
-class ForecastDbHelper():ManagedSQLiteOpenHelper(
-    App.instance, DB_NAME,null, DB_VERSION
+/*
+* Applied dependency injection via forecast db constructor
+* @param ctx
+* */
+
+class ForecastDbHelper(ctx:Context = App.instance):ManagedSQLiteOpenHelper(
+    ctx, DB_NAME,null, DB_VERSION
     ){
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.createTable(CityForecastTable.NAME, true,
